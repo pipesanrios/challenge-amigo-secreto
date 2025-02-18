@@ -1,10 +1,12 @@
 # Challenge amigo secreto
 
+Github Pages: https://pipesanrios.github.io/challenge-amigo-secreto/
+
 ## Descripción
 
-    se agregaran nombres de amigos, al agregarse se verificara que el campo no este vacio y que el nombre no este en la lista, una vez creada la lista al clicar en sortear  mostrara el nbombre de un amigo de la lista aleatoriamente
+* se agregaran nombres de amigos, al agregarse se verificara que el campo no este vacio y que el nombre no este en la lista, una vez creada la lista al clicar en sortear  mostrara el nbombre de un amigo de la lista aleatoriamente
 
-## Funcione
+## Funciones
 
 - **Agregar Amigos:**  
     Permite ingresar nombres y añadirlos a un arreglo. Se valida que el campo no esté vacío y que el nombre no se repita
