@@ -1,37 +1,54 @@
-// Array global que almacenará los nombres de los amigos
-const amigos = [];
+let amigos = [];
 
 function agregarAmigo() {
-  // Capturar el valor del campo de entrada
-  const inputAmigo = document.getElementById("amigo");
-  const nombre = inputAmigo.value.trim(); // Elimina espacios en blanco al inicio y al final
+  let inputAmigo = document.getElementById("amigo");
+  let nombre = inputAmigo.value.trim();
 
-  // Validar que el campo no esté vacío
-  if (nombre === "") {
+   if (nombre === "") {
     alert("Por favor, inserte un nombre.");
     return;
   }
 
-  // Verificar si el nombre ya está registrado
-  if (amigos.includes(nombre)) {
+    if (amigos.includes(nombre)) {
     alert("El nombre ya está registrado.");
     return;
   }
 
-  // Actualizar el array de amigos
-  amigos.push(nombre);
-  
-  // Limpiar el campo de entrada
-  inputAmigo.value = "";
+    amigos.push(nombre);
+    inputAmigo.value = "";
 
-  // Opcional: Mostrar en consola la lista actualizada de amigos
-  console.log("Lista de amigos:", amigos);
+  mostrarAmigos();
 }
 
-// Agregar event listener para detectar la tecla Enter en el input
-document.getElementById("amigo").addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-    event.preventDefault(); // Previene el comportamiento por defecto, como enviar un formulario
-    agregarAmigo();
+function mostrarAmigos() {
+  let listaAmigos = document.getElementById("listaAmigos");
+
+   listaAmigos.innerHTML = "";
+
+   for (let i = 0; i < amigos.length; i++) {
+    let li = document.createElement("li");
+    li.textContent = amigos[i];
+    listaAmigos.appendChild(li);
   }
-});
+}
+
+function sortearAmigo() {
+      if (amigos.length === 0) {
+      alert("No hay amigos disponibles para sortear.");
+      return;
+    }
+  
+    let indiceAleatorio = Math.floor(Math.random() * amigos.length);
+    
+    let amigoSorteado = amigos[indiceAleatorio];
+  
+    let resultadoElemento = document.getElementById("resultado");
+    resultadoElemento.innerHTML = `<li>El amigo sorteado es: ${amigoSorteado}</li>`;
+  }
+
+document.getElementById("amigo").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault(); 
+      agregarAmigo();
+    }
+  });
